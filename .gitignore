@@ -1,0 +1,13 @@
+/cache/
+/cache_替换/
+/cache1/
+/runs/
+/src/
+/vjepa2/
+/weights/
+/1013结果评估_20261013.md
+/1013结果下一轮算法任务.txt
+/模型算法任务书.md
+
+__pycache__/
+*.py[cod]

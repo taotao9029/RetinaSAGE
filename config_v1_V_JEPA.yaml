@@ -1,0 +1,41 @@
+data:
+  video_roots:
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1103
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1101
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1028
+  label_xlsx: /home/datasets/cv/TCT/脑卒/OCTAvideo/视频对应标签（脑卒）.xlsx
+  manifest_path: ./runs/B9/video_manifest.csv
+  cache_dir: ./cache/vjepa2_1_vitb_dist_vitG_384
+  output_dir: ./runs/B9
+  extensions: [.avi, .mp4, .mov, .mkv]
+  sample_fps: 2.0
+  max_frames: 128
+  image_size: 384
+  vjepa_clip_frames: 16
+  vjepa_clip_stride: 16
+
+backbone:
+  model_name: /home/wxy/Classification/syy/syy/strock_test/OCTA_pytorch/OCTA_VIT/weights/vjepa2_1_vitb_dist_vitG_384.pt
+  model_family: V-JEPA-2.1
+  model_architecture: ViT-B/16
+  input_resolution: 384
+  freeze: true
+
+model:
+  probe: two_layer_mlp
+  hidden_dim: 128
+  dropout: 0.1
+
+training:
+  seed: 42
+  outer_folds: 5
+  inner_folds: 4
+  batch_size: 8
+  epochs: 100
+  learning_rate: 0.0003
+  learning_rate_candidates: [0.0001, 0.0003]
+  weight_decay: 0.01
+  early_stopping_patience: 15
+  gradient_clip_norm: 1.0
+  num_workers: 2
+  decision_threshold: balanced_accuracy

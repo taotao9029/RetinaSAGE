@@ -1,0 +1,27 @@
+data:
+  video_roots:
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1103
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1101
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1028
+  label_xlsx: /home/datasets/cv/TCT/脑卒/OCTAvideo/视频对应标签（脑卒）.xlsx
+  manifest_path: ./runs/B8/feature_extraction_manifest_b8.csv
+  cache_dir: ./cache/RETFound
+  output_dir: ./runs/B8
+  extensions: [.avi, .mp4, .mov, .mkv]
+  sample_fps: 2.0
+  max_frames: 128
+  image_size: 256
+backbone:
+  model_name: /home/wxy/Classification/syy/syy/strock_test/OCTA_pytorch/OCTA_VIT/weights/RETFound_oct_weights.pth
+  freeze: true
+training:
+  seed: 42
+  outer_folds: 5
+  inner_folds: 5
+  batch_size: 4
+  epochs: 100
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  early_stopping_patience: 15
+  num_workers: 2
+  decision_threshold: balanced_accuracy

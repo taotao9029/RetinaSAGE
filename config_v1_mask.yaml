@@ -1,0 +1,38 @@
+data:
+  video_roots:
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1103
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1101
+    - /home/datasets/cv/TCT/脑卒/OCTAvideo/1028
+  label_xlsx: /home/datasets/cv/TCT/脑卒/OCTAvideo/视频对应标签（脑卒）.xlsx
+  manifest_path: ./runs/v1/feature_extraction_manifest.csv
+  cache_dir: ./cache/dinov3_vits16_mask
+  output_dir: ./runs/v1_mask_transformer
+  extensions: [.avi, .mp4, .mov, .mkv]
+  sample_fps: 2.0
+  max_frames: 128
+  image_size: 256
+
+backbone:
+  model_name: /home/wxy/Classification/syy/syy/strock_test/OCTA_pytorch/OCTA_VIT/weights/dinov3-vits16-pretrain-lvd1689m/local_model
+  freeze: true
+
+model:
+  region_grid: 4
+  hidden_dim: 128
+  attention_heads: 4
+  temporal_layers: 2
+  dropout: 0.1
+  graph: grid4
+
+training:
+  seed: 42
+  outer_folds: 5
+  inner_folds: 5
+  batch_size: 4
+  epochs: 100
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  early_stopping_patience: 15
+  num_workers: 2
+  decision_threshold: balanced_accuracy
+  lambda_pred: 0.2 # V1\V2版本使用

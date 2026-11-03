@@ -1,0 +1,12 @@
+numpy>=1.26
+pandas>=2.2
+openpyxl>=3.1
+opencv-python>=4.9
+pyyaml>=6.0
+scikit-learn>=1.5
+tqdm>=4.65
+torch>=2.2
+torchvision>=0.17
+transformers>=4.56.0
+safetensors>=0.4
+Pillow>=10.0

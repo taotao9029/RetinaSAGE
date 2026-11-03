@@ -219,3 +219,5 @@ If you use this code or the experimental protocol, cite the repository after its
 ## License
 
 Add the license governing this code before redistribution. Data, model weights, and third-party dependencies may have separate terms; a code license does not grant rights to redistribute them.
+
+Copyright (c) 2025 Taotao9029. All rights reserved.
