@@ -2,9 +2,7 @@
 
 ## Static-anchored quality-guided few-frame learning for retinal video classification
 
-RetinaSAGE is a research framework for **retinal video classification under a limited observation budget**. It asks a practical question:
-
-> When a strong single-frame model is already available, is observing a few additional frames worth the extra computation?
+RetinaSAGE is a research framework for **retinal video classification under a limited observation budget**. 
 
 The primary study is intentionally focused on three comparable systems:
 
