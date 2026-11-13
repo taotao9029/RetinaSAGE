@@ -116,36 +116,7 @@ These four views are stored separately in `metrics_four_views.csv` and must not 
 
 ---
 
-## 4. Reproducible primary artifacts
-
-The primary audit bundle is:
-
-[`runs/B1_B5/repro_three/`](runs/B1_B5/repro_three/)
-
-| Artifact | Purpose |
-|---|---|
-| `delivery_manifest.json` | run IDs, commands, commit, configurations and hashes |
-| `metrics_four_views.csv` | raw/calibrated × mean_outer/pooled_outer metrics |
-| `unified_predictions.csv` | per-animal scores, labels, thresholds, folds, seeds and selected frame IDs |
-| `paired_delta_auc_brier.csv` | fold-level paired changes relative to B1 |
-| `paired_delta_summary.csv` | paired effect summaries and intervals |
-| `error_sets/` | corrected, newly incorrect, common-error and common-correct cases |
-| `inputs/mil_4/` | fixed MIL-4 input artifacts |
-
-The three primary outputs are:
-
-```text
-runs/B1_B5/repro_three/
-├── b1/
-├── b1_final_calibration_matched/
-└── b1_mil4_final_calibration/
-```
-
-Every primary prediction table should be interpreted at the animal level. Frames, seeds and cross-validation repetitions are not independent animals.
-
----
-
-## 5. Reproduction
+## 4. Reproduction
 
 ```bash
 python -m venv .venv
@@ -179,7 +150,7 @@ Before reproducing, verify the DINOv3 checkpoint, feature-cache hash, feature-ma
 
 ---
 
-## 6. Supplementary experiments
+## 5. Supplementary experiments
 
 These experiments are retained to test alternative explanations and failure modes:
 
@@ -192,19 +163,11 @@ These experiments are retained to test alternative explanations and failure mode
 - **ERODES:** auxiliary ocular-ultrasound clip-level validation;
 - **CAMUS and other ultrasound data:** cross-task exploratory validation, not retinal external validation.
 
-Supplementary artifacts are organized under:
-
-```text
-runs/B1_B5/delivery_supplementary/
-runs/RVD/delivery_best_vessel16/
-runs/ERODES/delivery_best_mil4/
-```
-
 Historical negative results remain available. A supplementary branch is not promoted to the primary claim merely because it has a favorable point estimate.
 
 ---
 
-## 7. Evaluation principles and limitations
+## 6. Evaluation principles and limitations
 
 1. Use identical outer folds for all compared methods.
 2. Fit preprocessing, model selection, thresholds and calibration inside training folds.
@@ -219,7 +182,7 @@ The primary study is limited by a small imbalanced cohort, one nested-CV repeat 
 
 ---
 
-## 8. Data, privacy and license
+## 7. Data, privacy and license
 
 The dataset, labels and pretrained weights are not redistributed by this repository. Review all images, manifests and Git history for private paths, identifiers, credentials and restricted files before publication. The two representative TIFF files in `docs/assets/rvd_samples/` are documentation examples copied from the local OCTA collection; redistribution must follow the governing data agreement.
 
