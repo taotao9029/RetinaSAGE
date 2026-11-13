@@ -51,28 +51,18 @@ These images are documentation examples, not an additional evaluation set. Their
 
 ## 2. RetinaSAGE pipeline
 
-```mermaid
-flowchart LR
-    A[Retinal video] --> B[Sample candidate frames]
-    B --> C[Shared preprocessing]
-    C --> D[Frozen DINOv3 ViT-S/16]
-    D --> E[Per-frame features]
+**Pipeline summary**
 
-    E --> F[B1 fixed anchor]
-    F --> G[Logistic regression]
-    G --> H[B1 probability]
+1. Sample candidate frames from each retinal video.
+2. Apply the shared preprocessing pipeline.
+3. Extract frozen DINOv3 frame features.
+4. Use the fixed anchor for B1, or select four quality-guided frames for MIL-4.
+5. Fit the classifier or gated-attention MIL branch inside the training folds.
+6. Fuse B1 and MIL-4 probabilities under the constrained weight rule.
+7. Fit final Platt calibration using inner-fold out-of-fold predictions.
+8. Evaluate once on the held-out outer fold.
 
-    E --> I[Label-free quality score]
-    I --> J[Temporal bins + quality selection]
-    J --> K[Four selected frames]
-    K --> L[Gated-attention MIL]
-    L --> M[MIL-4 probability]
 
-    H --> N[Constrained fusion]
-    M --> N
-    N --> O[Inner-fold Platt calibration]
-    O --> P[Final calibrated prediction]
-```
 
 ### 2.1 Frozen representation
 
