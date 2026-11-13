@@ -36,14 +36,14 @@ All three primary methods share:
 
 ### Representative OCTA frames
 
-The following images are representative TIFF frames copied from the local OCTA video collection under `OCTAvideo/1103`. PNG derivatives are included so that GitHub can render them directly; the original TIFF files are retained beside them.
+The following images illustrate the two classes used in the local OCTA stroke cohort. The first is a representative **stroke** image from `OCTAvideo/1103`; the second is a representative **healthy** image from `OCTAvideo/1028`. PNG derivatives are included for README rendering, while the original TIFF files are retained beside them.
 
-| Representative frame | Description |
-|---|---|
-| <img src="./docs/assets/rvd_samples/rvd_1103_8hao_72h_01.png" alt="OCTA frame 1" width="520"> | Example OCTA frame from the local 1103 collection. |
-| <img src="./docs/assets/rvd_samples/rvd_1103_9hao_48h_01.png" alt="OCTA frame 2" width="520"> | Example OCTA frame from a different acquisition/timepoint. |
+| Class | Representative frame | Description |
+|---|---|---|
+| Stroke | <img src="./docs/assets/rvd_samples/stroke_1103_9hao_48h.png" alt="Representative stroke OCTA frame" width="520"> | Representative OCTA frame from the stroke cohort (`1103`). |
+| Healthy | <img src="./docs/assets/rvd_samples/healthy_1028_h_right.png" alt="Representative healthy OCTA frame" width="520"> | Representative OCTA frame from the healthy cohort (`1028`). |
 
-Direct image links: [frame 1](./docs/assets/rvd_samples/rvd_1103_8hao_72h_01.png) · [frame 2](./docs/assets/rvd_samples/rvd_1103_9hao_48h_01.png).
+Direct image links: [stroke image](./docs/assets/rvd_samples/stroke_1103_9hao_48h.png) · [healthy image](./docs/assets/rvd_samples/healthy_1028_h_right.png).
 
 These images are documentation examples, not an additional evaluation set. Their labels and patient identifiers are not inferred from the README.
 
