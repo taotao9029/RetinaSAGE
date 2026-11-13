@@ -4,6 +4,7 @@ openpyxl>=3.1
 opencv-python>=4.9
 pyyaml>=6.0
 scikit-learn>=1.5
+scikit-image>=0.24
 tqdm>=4.65
 torch>=2.2
 torchvision>=0.17
